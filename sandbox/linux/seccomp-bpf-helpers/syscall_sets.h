@@ -43,13 +43,14 @@ class SANDBOX_EXPORT SyscallSets {
   static bool IsDeniedGetOrModifySocket(int sysno);
 
 #if defined(__i386__) || \
-    (defined(ARCH_CPU_MIPS_FAMILY) && defined(ARCH_CPU_32_BITS))
+    (defined(ARCH_CPU_MIPS_FAMILY) && defined(ARCH_CPU_32_BITS)) || \
+    defined(__powerpc64__)
   // Big multiplexing system call for sockets.
   static bool IsSocketCall(int sysno);
 #endif
 
 #if defined(__x86_64__) || defined(__arm__) || defined(__mips__) || \
-    defined(__aarch64__)
+    defined(__aarch64__) || defined(__powerpc64__)
   static bool IsNetworkSocketInformation(int sysno);
 #endif
 
@@ -87,7 +88,8 @@ class SANDBOX_EXPORT SyscallSets {
 #endif
 
 #if defined(__i386__) || \
-    (defined(ARCH_CPU_MIPS_FAMILY) && defined(ARCH_CPU_32_BITS))
+    (defined(ARCH_CPU_MIPS_FAMILY) && defined(ARCH_CPU_32_BITS)) || \
+    defined(__powerpc64__)
   // Big system V multiplexing system call.
   static bool IsSystemVIpc(int sysno);
 #endif

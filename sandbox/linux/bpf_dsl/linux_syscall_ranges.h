@@ -55,6 +55,13 @@
 #define MAX_PUBLIC_SYSCALL 279u
 #define MAX_SYSCALL MAX_PUBLIC_SYSCALL
 
+#elif defined(__powerpc64__)
+
+#include <asm/unistd.h>
+#define MIN_SYSCALL 0u
+#define MAX_PUBLIC_SYSCALL 386u
+#define MAX_SYSCALL MAX_PUBLIC_SYSCALL
+
 #else
 #error "Unsupported architecture"
 #endif

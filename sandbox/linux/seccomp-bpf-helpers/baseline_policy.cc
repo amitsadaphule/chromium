@@ -88,7 +88,8 @@ bool IsBaselinePolicyWatched(int sysno) {
          SyscallSets::IsPrctl(sysno) ||
          SyscallSets::IsProcessGroupOrSession(sysno) ||
 #if defined(__i386__) || \
-    (defined(ARCH_CPU_MIPS_FAMILY) && defined(ARCH_CPU_32_BITS))
+    (defined(ARCH_CPU_MIPS_FAMILY) && defined(ARCH_CPU_32_BITS)) || \
+    defined(__powerpc64__)
          SyscallSets::IsSocketCall(sysno) ||
 #endif
 #if defined(__arm__)
@@ -206,7 +207,7 @@ ResultExpr EvaluateSyscallImpl(int fs_denied_errno,
   }
 
 #if defined(__i386__) || defined(__x86_64__) || defined(__mips__) || \
-    defined(__aarch64__)
+    defined(__aarch64__) || defined(__powerpc64__)
   if (sysno == __NR_mmap)
     return RestrictMmapFlags();
 #endif
@@ -224,7 +225,7 @@ ResultExpr EvaluateSyscallImpl(int fs_denied_errno,
     return RestrictPrctl();
 
 #if defined(__x86_64__) || defined(__arm__) || defined(__mips__) || \
-    defined(__aarch64__)
+    defined(__aarch64__) || defined(__powerpc64__)
   if (sysno == __NR_socketpair) {
     // Only allow AF_UNIX, PF_UNIX. Crash if anything else is seen.
     static_assert(AF_UNIX == PF_UNIX,
@@ -264,7 +265,8 @@ ResultExpr EvaluateSyscallImpl(int fs_denied_errno,
   }
 
 #if defined(__i386__) || \
-    (defined(ARCH_CPU_MIPS_FAMILY) && defined(ARCH_CPU_32_BITS))
+    (defined(ARCH_CPU_MIPS_FAMILY) && defined(ARCH_CPU_32_BITS)) || \
+    defined(__powerpc64__)
   if (SyscallSets::IsSocketCall(sysno))
     return RestrictSocketcallCommand();
 #endif

@@ -11,6 +11,8 @@
 #include "sandbox/linux/system_headers/arm_linux_ucontext.h"
 #elif defined(__i386__)
 #include "sandbox/linux/system_headers/i386_linux_ucontext.h"
+#elif defined(__powerpc64__)
+#include "sandbox/linux/system_headers/ppc64_linux_ucontext.h"
 #else
 #error "No support for your architecture in PNaCl header"
 #endif

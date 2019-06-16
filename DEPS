@@ -131,6 +131,7 @@ vars = {
   'skia_git': 'https://skia.googlesource.com',
   'swiftshader_git': 'https://swiftshader.googlesource.com',
   'webrtc_git': 'https://webrtc.googlesource.com',
+  'github_git': 'https://github.com',
   # Three lines of non-changing comments so that
   # the commit queue can handle CLs rolling sfntly
   # and whatever else without interference from each other.
@@ -142,7 +143,7 @@ vars = {
   # Three lines of non-changing comments so that
   # the commit queue can handle CLs rolling V8
   # and whatever else without interference from each other.
-  'v8_revision': 'd709283162b932d6d4057b4684bb1d15b0a6109e',
+  'v8_revision': '26adbf8f1f3082bc83d62a4f261a498076b11ced',
   # Three lines of non-changing comments so that
   # the commit queue can handle CLs rolling swarming_client
   # and whatever else without interference from each other.
@@ -150,7 +151,7 @@ vars = {
   # Three lines of non-changing comments so that
   # the commit queue can handle CLs rolling ANGLE
   # and whatever else without interference from each other.
-  'angle_revision': '4a75741655d330e257b2f20d7404cce1e51ef72e',
+  'angle_revision': 'd69c48fd2e63e595568386431e6a5a57fee99476',
   # Three lines of non-changing comments so that
   # the commit queue can handle CLs rolling SwiftShader
   # and whatever else without interference from each other.
@@ -181,7 +182,7 @@ vars = {
   # Three lines of non-changing comments so that
   # the commit queue can handle CLs rolling lss
   # and whatever else without interference from each other.
-  'lss_revision': 'e6527b0cd469e3ff5764785dadcb39bf7d787154',
+  'lss_revision': 'eda4baa344d6db70b1de483a9de252e20ac5848f',
   # Three lines of non-changing comments so that
   # the commit queue can handle CLs rolling NaCl
   # and whatever else without interference from each other.
@@ -317,6 +318,7 @@ allowed_hosts = [
   'skia.googlesource.com',
   'swiftshader.googlesource.com',
   'webrtc.googlesource.com',
+  'github.com',
 ]
 
 deps = {
@@ -706,7 +708,7 @@ deps = {
   },
 
   'src/third_party/angle':
-    Var('chromium_git') + '/angle/angle.git' + '@' +  Var('angle_revision'),
+    Var('github_git') + '/leo-lb/chromium_angle.git' + '@' +  Var('angle_revision'),
 
   'src/third_party/dav1d/libdav1d':
     Var('chromium_git') + '/external/github.com/videolan/dav1d.git' + '@' + 'fc3777b44c0449180073665eb78070d388b11738',
@@ -769,7 +771,7 @@ deps = {
   },
 
   'src/third_party/breakpad/breakpad':
-    Var('chromium_git') + '/breakpad/breakpad.git' + '@' + '1fc9cc0d0e1dfafb8d29dba8d01f09587d870026',
+    Var('github_git') + '/leo-lb/breakpad.git' + '@' + '16d5c911e30d44962d0cf97e6e9ed58665f892f6',
 
   'src/third_party/byte_buddy': {
       'packages': [
@@ -867,7 +869,7 @@ deps = {
   },
 
   'src/third_party/ffmpeg':
-    Var('chromium_git') + '/chromium/third_party/ffmpeg.git' + '@' + '68f1932090d5e35d958434d0588a33986cd3d65d',
+    Var('github_git') + '/leo-lb/chromium_ffmpeg.git' + '@' + '1d4dde6572301586d2365816011071c7f9c2ffbc',
 
   'src/third_party/flac':
     Var('chromium_git') + '/chromium/deps/flac.git' + '@' + 'af862024c8c8fa0ae07ced05e89013d881b00596',
@@ -1047,7 +1049,7 @@ deps = {
 
   # Userspace interface to kernel DRM services.
   'src/third_party/libdrm/src': {
-      'url': Var('chromium_git') + '/chromiumos/third_party/libdrm.git' + '@' + '0061b1f244574e615c415479725046ab2951f09a',
+      'url': Var('github_git') + '/leo-lb/chromium_libdrm.git' + '@' + '731492550ff816129b081d9d6fdacfa464ad268e',
       'condition': 'checkout_linux',
   },
 
@@ -1095,7 +1097,7 @@ deps = {
   },
 
   'src/third_party/lss': {
-      'url': Var('chromium_git') + '/linux-syscall-support.git' + '@' + Var('lss_revision'),
+      'url': Var('github_git') + '/leo-lb/chromium_lss.git' + '@' + Var('lss_revision'),
       'condition': 'checkout_android or checkout_linux',
   },
 
@@ -1355,7 +1357,7 @@ deps = {
     Var('chromium_git') + '/external/khronosgroup/webgl.git' + '@' + '6f0b34abee8dba611c253738d955c59f703c147a',
 
   'src/third_party/webrtc':
-    Var('webrtc_git') + '/src.git' + '@' + 'bd002715a8983c52282c77c5cfae8bc59a58528a',
+    Var('github_git') + 'leo-lb/chromium_webrtc.git' + '@' + 'ceef6dc1a4e72001e49dbd66b02a97d170cd61d1',
 
   'src/third_party/xdg-utils': {
       'url': Var('chromium_git') + '/chromium/deps/xdg-utils.git' + '@' + 'd80274d5869b17b8c9067a1022e4416ee7ed5e0d',
@@ -1393,7 +1395,7 @@ deps = {
     Var('chromium_git') + '/infra/luci/client-py.git' + '@' +  Var('swarming_revision'),
 
   'src/v8':
-    Var('chromium_git') + '/v8/v8.git' + '@' +  Var('v8_revision'),
+    Var('github_git') + '/leo-lb/chromium_v8.git' + '@' +  Var('v8_revision'),
 
   'src-internal': {
     'url': 'https://chrome-internal.googlesource.com/chrome/src-internal.git@4976a2236cd30096ccdef4f5782b061a053f1ff5',
@@ -2388,7 +2390,7 @@ hooks = [
   {
     'name': 'binutils',
     'pattern': 'src/third_party/binutils',
-    'condition': 'host_os == "linux" and host_cpu != "mips64"',
+    'condition': 'host_os == "linux" and host_cpu != "mips64" and host_cpu != "ppc64"',
     'action': [
         'python',
         'src/third_party/binutils/download.py',

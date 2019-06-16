@@ -151,7 +151,7 @@ bool BrokerProcess::IsSyscallAllowed(int sysno) const {
 #if defined(__NR_fstatat)
     case __NR_fstatat:
 #endif
-#if defined(__x86_64__) || defined(__aarch64__)
+#if defined(__x86_64__) || defined(__aarch64__) || defined(__powerpc64__)
     case __NR_newfstatat:
 #endif
       return !fast_check_in_client_ || allowed_command_set_.test(COMMAND_STAT);

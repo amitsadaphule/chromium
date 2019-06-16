@@ -340,6 +340,8 @@ static_library("libvpx") {
     } else {
       sources = libvpx_srcs_arm64
     }
+  } else if (current_cpu == "ppc64") {
+    sources = libvpx_srcs_ppc64
   }
 
   configs -= [ "//build/config/compiler:chromium_code" ]

@@ -290,7 +290,9 @@ TEST_BASELINE_SIGSYS(__NR_timer_create)
 #if !defined(__aarch64__)
 TEST_BASELINE_SIGSYS(__NR_eventfd)
 TEST_BASELINE_SIGSYS(__NR_inotify_init)
+#if !defined(__powerpc64__)
 TEST_BASELINE_SIGSYS(__NR_vserver)
+#endif
 #endif
 
 #if defined(LIBC_GLIBC) && !defined(OS_CHROMEOS)
