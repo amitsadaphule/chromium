@@ -96,6 +96,10 @@
 // define PFFFT_SIMD_DISABLE if you want to use scalar code instead of simd code
 //#define PFFFT_SIMD_DISABLE
 
+#ifdef defined(DEBUG)
+#define PFFFT_SIMD_DISABLE
+#endif
+
 /*
    Altivec support macros 
 */
