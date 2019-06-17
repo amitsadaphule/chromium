@@ -1524,7 +1524,7 @@ hooks = [
   {
     'name': 'binutils',
     'pattern': 'src/third_party/binutils',
-    'condition': 'host_os == "linux" and (host_cpu == "x86" || host_cpu == "x64")',
+    'condition': 'host_os == "linux" and (host_cpu == "x86" and host_cpu == "x64")',
     'action': [
         'python',
         'src/third_party/binutils/download.py',
