@@ -2390,7 +2390,7 @@ hooks = [
   {
     'name': 'binutils',
     'pattern': 'src/third_party/binutils',
-    'condition': 'host_os == "linux" and (host_cpu != "mips64" and host_cpu != "ppc64le")',
+    'condition': 'host_os == "linux" and (host_cpu == "x86" and host_cpu == "x64")',
     'action': [
         'python',
         'src/third_party/binutils/download.py',
